@@ -11,7 +11,6 @@ package blackjack;
  * code should remember to add themselves as a modifier.
  *
  * @author dancye, 2018
- * @modifier Vanshdeep Singh ,06/03/2020;
  */
 public abstract class Card {
 
