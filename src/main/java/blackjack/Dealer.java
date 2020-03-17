@@ -1,8 +1,5 @@
 package blackjack;
 
-/**
- * @author vansh
- */
 public class Dealer {
 
     private String dealerID;

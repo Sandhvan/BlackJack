@@ -14,7 +14,6 @@ package blackjack;
  */
 public abstract class Card {
 
-    //default modifier for child classes
     private int rankOfCard;//represents the rank of a card
     private int suitOfCard;//represents the suit of a card
     private int valueOfCard;//represents the value of a card
