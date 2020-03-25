@@ -12,57 +12,73 @@ package blackjack;
  *
  * @author dancye, 2018
  */
-public abstract class Card {
+public class Card {
 
-    private int rankOfCard;//represents the rank of a card
-    private int suitOfCard;//represents the suit of a card
+    private String rankOfCard;//represents the rank of a card
+    private String suitOfCard;//represents the suit of a card
     private int valueOfCard;//represents the value of a card
-    private static String[] ranks = {"Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"};
+    private static String[] ranks = {"Two", "Three", "Four", "Five", "Six",
+        "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"};
     private static String[] suits = {"Diamonds", "Clubs", "Spades", "Hearts"};
 
-    public int getRankOfCard() {
+    Card(int suit, int rank) {
+        rankOfCard = ranks[rank];
+        suitOfCard = suits[suit];
+    }
+
+    public String getRankOfCard() {
         return rankOfCard;
     }
 
-    public void setRankOfCard(int rankOfCard) {
-        this.rankOfCard = rankOfCard;
-    }
-
-    public int getSuitOfCard() {
+    public String getSuitOfCard() {
         return suitOfCard;
     }
 
-    public void setSuitOfCard(int suitOfCard) {
-        this.suitOfCard = suitOfCard;
-    }
-
     public int getValueOfCard() {
-        if (rankOfCard > 10) {
-            valueOfCard = 10;
-        } else {
-            valueOfCard = rankOfCard;
+        int value = 0;
+        switch (rankOfCard) {
+            case "Ace":
+                value = 1;
+                break;
+            case "Two":
+                value = 2;
+                break;
+            case "Three":
+                value = 3;
+                break;
+            case "Four":
+                value = 4;
+                break;
+            case "Five":
+                value = 5;
+                break;
+            case "Six":
+                value = 6;
+                break;
+            case "Seven":
+                value = 7;
+                break;
+            case "Eigth":
+                value = 8;
+                break;
+            case "Nine":
+                value = 9;
+                break;
+            case "Ten":
+                value = 10;
+                break;
+            case "Jack":
+                value = 10;
+                break;
+            case "Queen":
+                value = 10;
+                break;
+            case "King":
+                value = 10;
+                break;
         }
+        valueOfCard = value;
         return valueOfCard;
-    }
-
-    public void setValueOfCard(int valueOfCard) {
-        this.valueOfCard = valueOfCard;
-    }
-
-    public static String[] getRanks() {
-        return ranks;
-    }
-
-    public static void setRanks(String[] ranks) {
-        Card.ranks = ranks;
-    }
-
-    public static String[] getSuits() {
-        return suits;
-    }
-
-    public static void setSuits(String[] suits) {
-        Card.suits = suits;
     }
 
     /**
@@ -71,7 +87,4 @@ public abstract class Card {
      * @return a String representation of a card. Could be an UNO card, a
      * regular playing card etc.
      */
-    @Override
-    public abstract String toString();
-
 }
