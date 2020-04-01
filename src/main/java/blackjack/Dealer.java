@@ -10,7 +10,7 @@ public class Dealer {
     private String dealerID;
     static Card card;
     static ArrayList<Card> hand;
-    private static int handvalue = 0;
+    static int handvalue = 0;
     private Card[] aHand;
 
     public Dealer(String dealerID) {
@@ -25,10 +25,10 @@ public class Dealer {
         if (deal) {
             card = deck.showCards();
             handvalue = card.getValueOfCard();
+            System.out.println("Delear Hand value is " + card.getValueOfCard());
         }
         if (deal1) {
             card = deck.showCards();
-            System.out.println("Delear Hand value is " + card.getValueOfCard());
             handvalue += card.getValueOfCard();
         }
         if (deal2) {

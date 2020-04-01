@@ -54,9 +54,9 @@ public class Player {
         if (playerdeal) {
             card = deck.showCards();
             handvalue = card.getValueOfCard();
-            System.out.println("Your hand is "+handvalue);
+            System.out.println("Your hand is " + handvalue);
         }
-        
+
         Scanner sc = new Scanner(System.in);
         boolean keepGoing = true;
 
@@ -65,7 +65,7 @@ public class Player {
                 card = deck.showCards();
                 handvalue += card.getValueOfCard();
                 System.out.println("Your hand is " + handvalue);
-                System.out.println("Press 1 to enter another to draw a card or 0 to not");
+                System.out.println("Press 1 to draw another card or 0 to not");
                 String userAnswer = sc.nextLine();
                 if (Integer.parseInt(userAnswer) != 1) {
                     keepGoing = false;
