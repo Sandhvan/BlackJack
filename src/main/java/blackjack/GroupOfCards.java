@@ -29,6 +29,7 @@ public class GroupOfCards {
                 cards.add(new Card(i, j));
             }
         }
+        shuffle();
     }
 
     /**
@@ -37,7 +38,9 @@ public class GroupOfCards {
      * @return the group of cards.
      */
     public Card showCards() {
-        return cards.remove(0);
+        Card one = cards.get(0);
+        cards.remove(0);
+        return one;
     }
 
     public void shuffle() {

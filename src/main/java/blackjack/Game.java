@@ -8,17 +8,18 @@ package blackjack;
 import java.util.ArrayList;
 
 /**
- * The class that models your game. You should create a more specific
- * child of this class and instantiate the methods given.
+ * The class that models your game. You should create a more specific child of
+ * this class and instantiate the methods given.
+ *
  * @author dancye, 2018
  */
-public abstract class Game 
-{
+public abstract class Game {
+
     private final String gameName;//the title of the game
-    private ArrayList <Player> players;// the players of the game
-    
-    public Game(String givenName)
-    {
+    private ArrayList<Player> players;// the players of the game
+    static GroupOfCards deck = new GroupOfCards(52);
+
+    public Game(String givenName) {
         gameName = givenName;
         players = new ArrayList();
     }
@@ -26,39 +27,53 @@ public abstract class Game
     /**
      * @return the gameName
      */
-    public String getGameName() 
-    {
+    public String getGameName() {
         return gameName;
     }
-    
-     /**
+
+    /**
      * @return the players of this game
      */
-    public ArrayList <Player> getPlayers() 
-    {
+    public ArrayList<Player> getPlayers() {
         return players;
     }
 
     /**
      * @param players the players of this game
      */
-    public void setPlayers(ArrayList <Player> players) 
-    {
+    public void setPlayers(ArrayList<Player> players) {
         this.players = players;
     }
-    
+
     /**
-     * Play the game. This might be one method or many method calls depending
-     * on your game.
+     * Play the game. This might be one method or many method calls depending on
+     * your game.
      */
-    public abstract void play();
-    
+    public static void play() {
+        Player.playerdeal = true;
+        Player.play(deck);
+        Player.playerdeal = false;
+        Dealer.deal = true;
+        Dealer.deal(deck);
+        Dealer.deal = false;
+        Player.playerdeal2 = true;
+        Player.play(deck);
+        Player.playerdeal2 = false;
+        Dealer.deal1 = true;
+        Dealer.deal(deck);
+        Dealer.deal1 = false;
+        Dealer.deal2 = true;
+        Dealer.deal(deck);
+        Dealer.deal2 = false;
+    }
+
     /**
      * When the game is over, use this method to declare and display a winning
      * player.
      */
     public abstract void declareWinner();
 
-   
-    
+    public static void main(String[] args) {
+        play();
+    }
 }//end class
