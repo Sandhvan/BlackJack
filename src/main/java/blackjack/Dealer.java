@@ -1,7 +1,5 @@
 package blackjack;
 
-import java.util.ArrayList;
-
 public class Dealer {
 
     static boolean deal = false;
@@ -9,9 +7,7 @@ public class Dealer {
     static boolean deal2 = false;
     private String dealerID;
     static Card card;
-    static ArrayList<Card> hand;
     static int handvalue = 0;
-    private Card[] aHand;
 
     public Dealer(String dealerID) {
         this.dealerID = dealerID;
@@ -25,7 +21,7 @@ public class Dealer {
         if (deal) {
             card = deck.showCards();
             handvalue = card.getValueOfCard();
-            System.out.println("Delear Hand value is " + card.getValueOfCard());
+            System.out.println("Delear Total Hand value is " + card.getValueOfCard());
         }
         if (deal1) {
             card = deck.showCards();

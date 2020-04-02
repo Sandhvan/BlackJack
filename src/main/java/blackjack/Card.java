@@ -35,10 +35,10 @@ public class Card {
     }
 
     public int getValueOfCard() {
-        int value = 0;
+        int value = 11;
         switch (rankOfCard) {
             case "Ace":
-                value = 1;
+                value = 11;
                 break;
             case "Two":
                 value = 2;

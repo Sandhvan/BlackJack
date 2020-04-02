@@ -5,7 +5,6 @@
  */
 package blackjack;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -20,9 +19,7 @@ public class Player {
     static boolean playerdeal1 = false;
     static boolean playerdeal2 = false;
     private String playerID; //the unique ID for this player
-    private String dealerID;
     static Card card;
-    static ArrayList<Card> hand;
     static int handvalue = 0;
 
     /**
@@ -54,17 +51,15 @@ public class Player {
         if (playerdeal) {
             card = deck.showCards();
             handvalue = card.getValueOfCard();
-            System.out.println("Your hand is " + handvalue);
+            System.out.println("Your total hand value is " + handvalue);
         }
-
         Scanner sc = new Scanner(System.in);
         boolean keepGoing = true;
-
         if (playerdeal2) {
             do {
                 card = deck.showCards();
                 handvalue += card.getValueOfCard();
-                System.out.println("Your hand is " + handvalue);
+                System.out.println("Your total hand is value " + handvalue);
                 System.out.println("Press 1 to draw another card or 0 to not");
                 String userAnswer = sc.nextLine();
                 if (Integer.parseInt(userAnswer) != 1) {
@@ -72,6 +67,5 @@ public class Player {
                 }
             } while (keepGoing);
         }
-
     }
 }

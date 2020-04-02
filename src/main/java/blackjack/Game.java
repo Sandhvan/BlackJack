@@ -26,37 +26,32 @@ public class Game {
         Scanner input = new Scanner(System.in);
 
         do {
-            System.out.println("Enter Your Player Id ");
-            Player p = new Player(input.next());
-            System.out.println("Shall we start game yes/no");
-            String str = input.next();
-            if (str.equalsIgnoreCase("yes")) {
-                Player.playerdeal = true;
-                Player.play(deck);
-                Player.playerdeal = false;
-                Dealer.deal = true;
-                Dealer.deal(deck);
-                Dealer.deal = false;
-                Player.playerdeal2 = true;
-                Player.play(deck);
-                Player.playerdeal2 = false;
-                Dealer.deal1 = true;
-                Dealer.deal(deck);
-                Dealer.deal1 = false;
-                Dealer.deal2 = true;
-                Dealer.deal(deck);
-                System.out.println("Delear hand " + Dealer.handvalue);
-                declareWinner();
-            } else {
-                System.out.println("Thank you Joining you may leave now");
-            }
+
+            Player.playerdeal = true;
+            Player.play(deck);
+            Player.playerdeal = false;
+            Dealer.deal = true;
+            Dealer.deal(deck);
+            Dealer.deal = false;
+            Player.playerdeal2 = true;
+            Player.play(deck);
+            Player.playerdeal2 = false;
+            Dealer.deal1 = true;
+            Dealer.deal(deck);
+            Dealer.deal1 = false;
+            Dealer.deal2 = true;
+            Dealer.deal(deck);
+            System.out.println("Delear hand " + Dealer.handvalue);
+            declareWinner();
+
             System.out.println("Press 1 to continue game or 0 to not");
             String userAnswer = input.next();
             if (Integer.parseInt(userAnswer) != 1) {
                 keepGoing = false;
             }
         } while (keepGoing);
-        System.out.println("Thank you Joining you may leave now");
+        System.out.println(
+                "Thank you for Joining you may leave now");
 
     }
 
@@ -65,20 +60,36 @@ public class Game {
      * player.
      */
     public static void declareWinner() {
+
         if (Dealer.handvalue <= 21 && Dealer.handvalue > Player.handvalue) {
-            System.out.println("\nYou Lose and Dealer Win");
+            System.out.println("\nYou Lose and Dealer Win\n");
         } else if (Dealer.handvalue == Player.handvalue) {
-            System.out.println("\nIts a tie ");
+            System.out.println("\nIts a tie\n");
         } else if (Dealer.handvalue > 21 && Player.handvalue < Dealer.handvalue
                 && Player.handvalue <= 21) {
-            System.out.println("You win and Dealer Lose");
+            System.out.println("You win and Dealer Lose\n");
         } else if (Dealer.handvalue > 21 && Player.handvalue > 21) {
-            System.out.println("No one wins");
+            System.out.println("No one wins\n");
+        } else if (Player.handvalue > 21 && Dealer.handvalue <= 21) {
+            System.out.println("\nYou Lose and Dealer Win\n");
+        } else if (Dealer.handvalue <= 21 && Player.handvalue <= 21
+                && Dealer.handvalue < Player.handvalue) {
+            System.out.println("You win and Dealer Lose\n");
         }
     }
 
     public static void main(String[] args) {
-        System.out.println("This game does not promot betting and there is no involvement of any money");
-        play();
+        System.out.println("#This Game is a simple Black Jack game\n   for beginner to learn without losing Money");
+        System.out.println("#This game does not promot betting and\n   there is no involvement of any money");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter Your Player Id ");
+        Player p = new Player(input.next());
+        System.out.println("Shall we start game yes/no");
+        String str = input.next();
+        if (str.equalsIgnoreCase("yes")) {
+            play();
+        } else {
+            System.out.println("Thank you for Joining you may leave now");
+        }
     }
 }//end class

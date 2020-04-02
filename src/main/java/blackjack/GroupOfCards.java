@@ -29,6 +29,8 @@ public class GroupOfCards {
                 cards.add(new Card(i, j));
             }
         }
+        cards.addAll(cards);
+        cards.addAll(cards);
         shuffle();
     }
 
