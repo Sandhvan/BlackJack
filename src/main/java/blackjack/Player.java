@@ -23,7 +23,7 @@ public class Player {
     private String dealerID;
     static Card card;
     static ArrayList<Card> hand;
-    private static int handvalue = 0;
+    static int handvalue = 0;
 
     /**
      * A constructor that allows you to set the player's unique ID

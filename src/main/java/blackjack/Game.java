@@ -65,10 +65,20 @@ public class Game {
      * player.
      */
     public static void declareWinner() {
-
+        if (Dealer.handvalue <= 21 && Dealer.handvalue > Player.handvalue) {
+            System.out.println("\nYou Lose and Dealer Win");
+        } else if (Dealer.handvalue == Player.handvalue) {
+            System.out.println("\nIts a tie ");
+        } else if (Dealer.handvalue > 21 && Player.handvalue < Dealer.handvalue
+                && Player.handvalue <= 21) {
+            System.out.println("You win and Dealer Lose");
+        } else if (Dealer.handvalue > 21 && Player.handvalue > 21) {
+            System.out.println("No one wins");
+        }
     }
 
     public static void main(String[] args) {
+        System.out.println("This game does not promot betting and there is no involvement of any money");
         play();
     }
 }//end class
