@@ -12,6 +12,7 @@ import java.util.Scanner;
  * which should be unique.
  *
  * @author dancye, 2018
+ *
  */
 public class Player {
 
@@ -36,15 +37,6 @@ public class Player {
      */
     public String getPlayerID() {
         return playerID;
-    }
-
-    /**
-     * Ensure that the playerID is unique
-     *
-     * @param givenID the playerID to set
-     */
-    public void setPlayerID(String givenID) {
-        playerID = givenID;
     }
 
     public static void play(GroupOfCards deck) {

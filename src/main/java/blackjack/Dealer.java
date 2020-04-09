@@ -28,10 +28,14 @@ public class Dealer {
             handvalue += card.getValueOfCard();
         }
         if (deal2) {
-            while (handvalue < 17) {
+            while (handvalue <= 17) {
                 card = deck.showCards();
                 handvalue += card.getValueOfCard();
+
             }
+        }
+        if (handvalue > 28) {
+            handvalue = 27;
         }
     }
 

@@ -15,7 +15,10 @@ import java.util.Scanner;
  */
 public class Game {
 
-    static GroupOfCards deck = new GroupOfCards(52 * 4);
+    private static GroupOfCards deck = new GroupOfCards(52 * 4);
+    private static int points;
+    private static int winCount = 0;
+    private static int gamePlayed = 0;
 
     /**
      * Play the game. This might be one method or many method calls depending on
@@ -43,15 +46,17 @@ public class Game {
             Dealer.deal(deck);
             System.out.println("Delear hand " + Dealer.handvalue);
             declareWinner();
-
-            System.out.println("Press 1 to continue game or 0 to not");
+            System.out.println("Your points " + points);
+            System.out.println("\nPress 1 to continue game or 0 to not");
             String userAnswer = input.next();
             if (Integer.parseInt(userAnswer) != 1) {
                 keepGoing = false;
             }
         } while (keepGoing);
-        System.out.println(
-                "Thank you for Joining you may leave now");
+        System.out.println("\n#Your total pionts are " + points);
+        System.out.println("#Number of Game Played " + gamePlayed);
+        System.out.println("#Number of time you won " + winCount);
+        System.out.println("#Thank you for Joining");
 
     }
 
@@ -60,27 +65,34 @@ public class Game {
      * player.
      */
     public static void declareWinner() {
-
+        gamePlayed++;
         if (Dealer.handvalue <= 21 && Dealer.handvalue > Player.handvalue) {
-            System.out.println("\nYou Lose and Dealer Win\n");
+            System.out.println("You Lose and Dealer Win");
         } else if (Dealer.handvalue == Player.handvalue) {
-            System.out.println("\nIts a tie\n");
+            System.out.println("Its a tie");
         } else if (Dealer.handvalue > 21 && Player.handvalue < Dealer.handvalue
                 && Player.handvalue <= 21) {
-            System.out.println("You win and Dealer Lose\n");
+            System.out.println("You win and Dealer Lose");
+            points += 5;
+            winCount++;
         } else if (Dealer.handvalue > 21 && Player.handvalue > 21) {
-            System.out.println("No one wins\n");
+            System.out.println("No one wins");
         } else if (Player.handvalue > 21 && Dealer.handvalue <= 21) {
-            System.out.println("\nYou Lose and Dealer Win\n");
+            System.out.println("You Lose and Dealer Win");
         } else if (Dealer.handvalue <= 21 && Player.handvalue <= 21
                 && Dealer.handvalue < Player.handvalue) {
-            System.out.println("You win and Dealer Lose\n");
+            System.out.println("You win and Dealer Lose");
+            points += 5;
+            winCount++;
         }
     }
 
     public static void main(String[] args) {
-        System.out.println("#This Game is a simple Black Jack game\n   for beginner to learn without losing Money");
-        System.out.println("#This game does not promot betting and\n   there is no involvement of any money");
+        System.out.println("#This Game is a simple Black Jack game\n   "
+                + "for beginner to learn without losing Money.");
+        System.out.println("#This game does not promot betting and\n  "
+                + " there is no involvement of any money.");
+        System.out.println("#This game work on simple point you earn when you win.");
         Scanner input = new Scanner(System.in);
         System.out.println("Enter Your Player Id ");
         Player p = new Player(input.next());
@@ -89,7 +101,7 @@ public class Game {
         if (str.equalsIgnoreCase("yes")) {
             play();
         } else {
-            System.out.println("Thank you for Joining you may leave now");
+            System.out.println("Thank you for Joining");
         }
     }
 }//end class

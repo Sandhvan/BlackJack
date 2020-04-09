@@ -21,6 +21,10 @@ public class Card {
         "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"};
     private static String[] suits = {"Diamonds", "Clubs", "Spades", "Hearts"};
 
+    public Card() {
+
+    }
+
     Card(int suit, int rank) {
         rankOfCard = ranks[rank];
         suitOfCard = suits[suit];
@@ -35,7 +39,7 @@ public class Card {
     }
 
     public int getValueOfCard() {
-        int value = 11;
+        int value;
         switch (rankOfCard) {
             case "Ace":
                 value = 11;
@@ -76,15 +80,11 @@ public class Card {
             case "King":
                 value = 10;
                 break;
+            default:
+                value = 2;
         }
         valueOfCard = value;
         return valueOfCard;
     }
 
-    /**
-     * Students should implement this method for their specific children classes
-     *
-     * @return a String representation of a card. Could be an UNO card, a
-     * regular playing card etc.
-     */
 }
