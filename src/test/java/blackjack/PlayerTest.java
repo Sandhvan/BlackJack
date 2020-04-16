@@ -45,7 +45,23 @@ public class PlayerTest {
      * Test of play method, of class Player.
      */
     @Test
-    public void testPlay() {
+    public void testPlayGood() {
+        System.out.println("play");
+        GroupOfCards deck = new GroupOfCards(52 * 4);;
+        Player.play(deck);
+
+    }
+
+    @Test
+    public void testPlayBad() {
+        System.out.println("play");
+        GroupOfCards deck = new GroupOfCards(52 * 4);;
+        Player.play(deck);
+
+    }
+
+    @Test
+    public void testPlayBoundary() {
         System.out.println("play");
         GroupOfCards deck = new GroupOfCards(52 * 4);;
         Player.play(deck);

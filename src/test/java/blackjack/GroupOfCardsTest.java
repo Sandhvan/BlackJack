@@ -1,5 +1,6 @@
 package blackjack;
 
+import java.util.function.Supplier;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,7 +33,26 @@ public class GroupOfCardsTest {
      * Test of showCards method, of class GroupOfCards.
      */
     @Test
-    public void testShowCards() {
+    public void testShowCardsGood() {
+        System.out.println("showCards");
+        GroupOfCards instance = new GroupOfCards(52 * 4);;
+        Card expResult = new Card();
+        Card result = instance.showCards();
+        expResult = result;
+        assertEquals(expResult, result);
+
+    }
+
+    public void testShowCardsBad() {
+        System.out.println("showCards");
+        GroupOfCards instance = new GroupOfCards(52 * 4);;
+        Card expResult = new Card();
+        Card result = instance.showCards();
+        assertNotSame(expResult, result);
+
+    }
+
+    public void testShowCardsBoundary() {
         System.out.println("showCards");
         GroupOfCards instance = new GroupOfCards(52 * 4);;
         Card expResult = new Card();
